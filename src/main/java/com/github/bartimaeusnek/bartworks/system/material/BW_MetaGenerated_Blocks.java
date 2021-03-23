@@ -61,12 +61,12 @@ public abstract class BW_MetaGenerated_Blocks extends BW_TileEntityContainer {
     @Override
     public void onBlockAdded(World aWorld, int aX, int aY, int aZ) {
         super.onBlockAdded(aWorld, aX, aY, aZ);
-        try {
-            //TODO: Unsleep this, is here because TE isnt set yet.
-            Thread.sleep(1);
-        } catch (InterruptedException e) {
-            MainMod.LOGGER.catching(e);
-        }
+        long nanos = 10;
+        long start = System.nanoTime();
+        long end;
+        do {
+            end = System.nanoTime();
+        } while(start + nanos >= end);
     }
 
     @SideOnly(Side.CLIENT)
